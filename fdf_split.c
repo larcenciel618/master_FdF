@@ -51,7 +51,7 @@ static size_t	exe_split(char **all, char *str, char c)
 	return (world_count);
 }
 
-static char	**set_all(char *s, char c)
+static char	**set_all(char *s, char c, int *column)
 {
 	size_t	i;
 	size_t	count;
@@ -70,6 +70,7 @@ static char	**set_all(char *s, char c)
 		else
 			i++;
 	}
+	*column = count;
 	all = (char **)malloc(sizeof(char *) * (count + 1));
 	return (all);
 }
@@ -82,7 +83,7 @@ char	**fdf_split(char *s, char c, int *column)
 
 	if (s == NULL)
 		return (NULL);
-	all = set_all(s, c);
+	all = set_all(s, c, column);
 	if (all == NULL)
 		return (NULL);
 	x = exe_split(all, s, c);
@@ -94,6 +95,5 @@ char	**fdf_split(char *s, char c, int *column)
 		free_all(all, x);
 		return (NULL);
 	}
-	*column = x;
 	return (all);
 }
