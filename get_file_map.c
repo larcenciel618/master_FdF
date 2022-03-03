@@ -12,18 +12,25 @@
 
 #include "fdf.h"
 
-static size_t	word_count(char const *s, char c)
+static size_t	word_count(char *s, char c)
 {
-	size_t	ret;
+	size_t	count;
+	size_t	i;
 
-	ret = 0;
-	while (*s)
+	count = 0;
+	i = 0;
+	while (s[i] && s[i] != '\n')
 	{
-		if (*s != c && (*(s + 1) == c || *(s + 1) == '\0'))
-			 ret++;
-		s++;
+		if (s[i] != c)
+		{
+			count++;
+			while (s[i] != c && s[i])
+				i++;
+		}
+		else
+			i++;
 	}
-	return (ret);
+	return (count);
 }
 
 void	get_map_size(t_fdf *fdf, t_llist *file_map)

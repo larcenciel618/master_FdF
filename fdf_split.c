@@ -56,22 +56,29 @@ static char	**set_all(char *s, char c, int *column)
 	size_t	i;
 	size_t	count;
 	char	**all;
+	int	nflag;
 
 	i = 0;
 	count = 0;
+	nflag = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		if (s[i] != c && s[i] != '\n')
 		{
 			count++;
 			while (s[i] != c && s[i])
 				i++;
 		}
+		else if (s[i] == '\n')
+		{
+			i++;
+			nflag = 1;
+		}
 		else
 			i++;
 	}
 	*column = count;
-	all = (char **)malloc(sizeof(char *) * (count + 1));
+	all = (char **)malloc(sizeof(char *) * (count + nflag + 1));
 	return (all);
 }
 
