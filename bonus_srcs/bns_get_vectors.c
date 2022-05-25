@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 static t_vector	**make_vecs_zc(t_get_vec_info *gvi, char **one_line_elem)
 {

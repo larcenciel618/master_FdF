@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 static int	change_color_ele(int s_color, int e_color, \
 								double ratio, int color_ele)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 void	free_get_vectors(t_get_vec_info *gvi, char **line, char **pixel)
 {
