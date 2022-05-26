@@ -6,11 +6,11 @@
 /*   By: kahirose <kahirose@studnt.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 23:59:51 by kahirose          #+#    #+#             */
-/*   Updated: 2022/02/13 15:21:31 by kahirose         ###   ########.fr       */
+/*   Updated: 2022/05/26 15:00:43 by kahirose         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf_bonus.h"
+#include "fdf.h"
 
 static void	free_all(char **all, size_t world_count)
 {
@@ -51,16 +51,13 @@ static size_t	exe_split(char **all, char *str, char c)
 	return (world_count);
 }
 
-static char	**set_all(char *s, char c, int *column)
+static size_t	count_token(char *s, char c, int *nflag)
 {
 	size_t	i;
 	size_t	count;
-	char	**all;
-	int	nflag;
 
 	i = 0;
 	count = 0;
-	nflag = 0;
 	while (s[i])
 	{
 		if (s[i] != c && s[i] != '\n')
@@ -72,11 +69,22 @@ static char	**set_all(char *s, char c, int *column)
 		else if (s[i] == '\n')
 		{
 			i++;
-			nflag = 1;
+			*nflag = 1;
 		}
 		else
 			i++;
 	}
+	return (count);
+}
+
+static char	**set_all(char *s, char c, int *column)
+{
+	size_t	count;
+	char	**all;
+	int		nflag;
+
+	nflag = 0;
+	count = count_token(s, c, &nflag);
 	*column = count;
 	all = (char **)malloc(sizeof(char *) * (count + nflag + 1));
 	return (all);

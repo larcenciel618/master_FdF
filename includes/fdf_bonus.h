@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   fdf_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kahirose <kahirose@studnt.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 23:42:00 by kahirose          #+#    #+#             */
-/*   Updated: 2022/02/18 01:18:07 by kahirose         ###   ########.fr       */
+/*   Updated: 2022/05/26 15:03:45 by kahirose         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_BONUS_H
-# define FDF_BONUSH
+# define FDF_BONUS_H
 
 # include	"../minilibx-linux/mlx.h"
 # include	"get_next_line_bonus.h"
